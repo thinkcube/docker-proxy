@@ -12,11 +12,13 @@ RUN sed -i 's/^\([^#]\)/#\1/g' /etc/httpd/conf.d/welcome.conf
 
 RUN sed -i "s|#ServerName www.example.com:80|ServerName proxy|" /etc/httpd/conf/httpd.conf
 
+COPY default.conf /etc/httpd/conf.d/default.conf
+
 COPY index.html /var/www/html/index.html
 
 COPY rp /usr/local/bin/rp
 
-VOLUME ["/etc/httpd/vhost.d", "/var/www/html"]
+VOLUME ["/etc/httpd/vhost.d"]
 
 EXPOSE 80
 
