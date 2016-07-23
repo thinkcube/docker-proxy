@@ -3,8 +3,8 @@
 echo "<VirtualHost *:80>" > /etc/httpd/vhost.d/$1.conf
 echo -e "    ServerName $1" >> /etc/httpd/vhost.d/$1.conf
 echo -e "    ProxyPreserveHost On" >> /etc/httpd/vhost.d/$1.conf
-echo -e "    ProxyPass / http://$2:$3/" >> /etc/httpd/vhost.d/$1.conf
-echo -e "    ProxyPassReverse / http://$2:$3/" >> /etc/httpd/vhost.d/$1.conf
+echo -e "    ProxyPass / http://$2:80/" >> /etc/httpd/vhost.d/$1.conf
+echo -e "    ProxyPassReverse / http://$2:80/" >> /etc/httpd/vhost.d/$1.conf
 echo "</VirtualHost>" >> /etc/httpd/vhost.d/$1.conf
 
 /sbin/apachectl -k graceful &>/dev/null
