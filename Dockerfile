@@ -22,4 +22,6 @@ VOLUME ["/etc/httpd/vhost.d"]
 
 EXPOSE 80
 
-CMD ["/sbin/httpd","-D","NO_DETACH"]
+COPY run.sh /run.sh
+
+CMD ["/run.sh"]
